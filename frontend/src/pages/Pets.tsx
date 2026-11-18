@@ -1,0 +1,14 @@
+import { FormEvent, useEffect, useState } from "react";
+import api from "../api";
+import type { Pet } from "../types";
+import { PawPrint, Trash2 } from "lucide-react";
+
+export default function Pets() {
+  const [pets,setPets]=useState<Pet[]>([]); const [name,setName]=useState(""); const [type,setType]=useState("Dog");
+  const [breed,setBreed]=useState(""); const [age,setAge]=useState("1"); const [notes,setNotes]=useState(""); const [error,setError]=useState("");
+  async function load(){try{const r=await api.get("/pets");setPets(r.data);}catch{setError("Please log in to manage your pets.");}}
+  useEffect(()=>{void load();},[]);
+  async function add(e:FormEvent){e.preventDefault();setError("");try{await api.post("/pets",{name,type,breed,age:Number(age),notes});setName("");setBreed("");setNotes("");await load();}catch(err:unknown){setError((err as {response?:{data?:{message?:string}}}).response?.data?.message||"Could not save pet.");}}
+  async function remove(id:string){if(!confirm("Delete this pet profile?"))return;try{await api.delete(`/pets/${id}`);await load();}catch{setError("Could not delete pet.");}}
+  return <section className="page-section"><div className="container"><div className="page-title"><span className="eyebrow">YOUR LITTLE FAMILY</span><h1>My Pets 🐾</h1><p>Keep your pet details ready for their next visit.</p></div><div className="content-grid"><form className="panel form-stack" onSubmit={add}><h2>Add a pet</h2><label>Pet name<input required value={name} onChange={e=>setName(e.target.value)} placeholder="e.g. Milo"/></label><label>Pet type<select value={type} onChange={e=>setType(e.target.value)}><option>Dog</option><option>Cat</option><option>Bird</option><option>Other</option></select></label><label>Breed<input required value={breed} onChange={e=>setBreed(e.target.value)} placeholder="e.g. Labrador"/></label><label>Age (years)<input required type="number" min="0" max="40" value={age} onChange={e=>setAge(e.target.value)}/></label><label>Notes<textarea value={notes} onChange={e=>setNotes(e.target.value)} placeholder="Allergies or special notes"/></label><button className="btn-primary full">Save Pet</button>{error&&<p className="error-text">{error}</p>}</form><div className="panel"><h2>Registered pets</h2>{pets.length===0?<p className="empty">No pets yet. Add your first pet!</p>:<div className="pet-list">{pets.map(p=><article className="pet-row" key={p._id}><div className="pet-avatar"><PawPrint/></div><div className="pet-info"><b>{p.name}</b><span>{p.type} · {p.breed} · {p.age} years</span>{p.notes&&<small>{p.notes}</small>}</div><button className="icon-button" onClick={()=>remove(p._id)} aria-label="Delete pet"><Trash2 size={17}/></button></article>)}</div>}</div></div></div></section>;
+}
