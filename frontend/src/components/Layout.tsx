@@ -19,9 +19,9 @@ export default function Layout() {
         <button className="mobile-menu" onClick={() => setOpen(!open)} aria-label="Toggle navigation"><Menu/></button>
         <nav className={open ? "nav-links show" : "nav-links"}>
           <NavLink to="/" className={linkClass}>Home</NavLink>
-          <NavLink to="/services" className={linkClass}>Services</NavLink>
+          <NavLink to="/services" className={linkClass}>Services</NavLink>\n          <NavLink to="/shop" className={linkClass}>Pet Shop</NavLink>
           <NavLink to="/pets" className={linkClass}>My Pets</NavLink>
-          {user?.role === "admin" && <NavLink to="/admin" className={linkClass}>Admin</NavLink>}
+          {user?.role === "admin" && <><NavLink to="/admin" className={linkClass}>Admin</NavLink><NavLink to="/admin/pets" className={linkClass}>Manage Pets</NavLink></>}
           {user ? <><NavLink to="/appointments" className={linkClass}>Appointments</NavLink><span className="nav-user"><UserRound size={15}/> {user.name}</span><button className="btn-outline small" onClick={leave}><LogOut size={15}/> Logout</button></> :
             <><Link to="/login" className="nav-link">Login</Link><Link to="/register" className="btn-primary small">Get Started</Link></>}
         </nav>
