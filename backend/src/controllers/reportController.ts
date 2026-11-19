@@ -68,7 +68,7 @@ export async function appointmentReport(_req: AuthRequest, res: Response): Promi
     doc.font("Helvetica-Bold").fontSize(20).fillColor(green)
       .text("PetCare", 46, 38, { continued: true });
     doc.font("Helvetica").fontSize(10).fillColor(muted)
-      .text("  |  APPOINTMENT REPORT", { baseline: "middle" });
+      .text("  |  APPOINTMENT REPORT");
     doc.moveTo(46, 68).lineTo(pageWidth - 46, 68).lineWidth(1).strokeColor("#DCE7E1").stroke();
     doc.y = 82;
   };
