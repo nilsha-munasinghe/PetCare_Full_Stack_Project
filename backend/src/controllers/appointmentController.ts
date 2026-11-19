@@ -11,7 +11,7 @@ function validDateTime(date: unknown, time: unknown): Date | null {
   const value = new Date(`${date}T00:00:00.000Z`);
   if (Number.isNaN(value.getTime()) || value.toISOString().slice(0, 10) !== date) return null;
   const now = new Date();
-  const chosen = new Date(`${date}T${time}:00.000Z`);
+  const chosen = new Date(`${date}T${time}:00+05:30`);
   if (chosen.getTime() < now.getTime()) return null;
   return value;
 }
