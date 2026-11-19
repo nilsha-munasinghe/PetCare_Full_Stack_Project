@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
+    "check": "tsc --noEmit",
     "start": "node dist/server.js",
-    "seed": "tsx src/seed.ts",
-    "check": "tsc --noEmit"
+    "seed": "tsx src/seed.ts"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
