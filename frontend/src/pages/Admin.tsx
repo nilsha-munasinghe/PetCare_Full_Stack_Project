@@ -146,6 +146,18 @@ export default function Admin() {
     }
   }
 
+  async function setProductActive(product: Product, active: boolean) {
+    setError("");
+    setMessage("");
+    try {
+      await api.put(`/shop/products/${product._id}`, { active });
+      await load();
+      setMessage(active ? "Product activated and visible in the shop." : "Product deactivated and hidden from the shop.");
+    } catch (e: unknown) {
+      setError(apiMessage(e, active ? "Could not activate product." : "Could not deactivate product."));
+    }
+  }
+
   async function report() {
     setError("");
     try {
@@ -280,8 +292,15 @@ export default function Admin() {
               <h2>Products</h2>
               {products.map((product) => (
                 <div className="pet-row" key={product._id}>
-                  <div className="pet-info"><b>{product.name}</b><span>LKR {product.price} · Stock {product.stock}</span></div>
-                  <button type="button" className="text-button" onClick={() => void deactivate(`/shop/products/${product._id}`)}>Deactivate</button>
+                  <div className="pet-info">
+                    <b>{product.name}</b>
+                    <span>LKR {product.price} · Stock {product.stock} · {product.active ? "Active in shop" : "Inactive (hidden from shop)"}</span>
+                  </div>
+                  {product.active ? (
+                    <button type="button" className="text-button" onClick={() => void setProductActive(product, false)}>Deactivate</button>
+                  ) : (
+                    <button type="button" className="text-button" onClick={() => void setProductActive(product, true)}>Activate</button>
+                  )}
                 </div>
               ))}
               {products.length === 0 && <p className="empty">No products found.</p>}
