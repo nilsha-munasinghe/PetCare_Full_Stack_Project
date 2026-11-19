@@ -1,6 +1,6 @@
 import {
   ArrowRight, CalendarDays, Heart, PawPrint, ShieldCheck,
-  Stethoscope, Syringe, Scissors, Clock3, Sparkles, Leaf, Star,
+  Stethoscope, Syringe, Scissors, Clock3, Leaf, Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
