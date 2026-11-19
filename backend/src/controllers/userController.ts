@@ -19,10 +19,11 @@ export async function updateUserAccess(req: AuthRequest, res: Response): Promise
   if (role === undefined && isActive === undefined) {
     res.status(400).json({ message: "Provide a role or isActive value" }); return;
   }
-  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+  const userId = String(req.params.id);
+  if (!mongoose.Types.ObjectId.isValid(userId)) {
     res.status(400).json({ message: "Invalid user id" }); return;
   }
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(userId);
   if (!user) { res.status(404).json({ message: "User not found" }); return; }
   if (user.id === req.user?.id && (role === "customer" || isActive === false)) {
     res.status(400).json({ message: "You cannot remove your own administrator access" }); return;

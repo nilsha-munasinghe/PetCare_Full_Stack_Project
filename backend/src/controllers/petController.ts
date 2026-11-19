@@ -22,8 +22,9 @@ export async function createPet(req: AuthRequest, res: Response): Promise<void> 
   res.status(201).json(pet);
 }
 export async function updatePet(req: AuthRequest, res: Response): Promise<void> {
-  if (!mongoose.Types.ObjectId.isValid(req.params.id)) { res.status(400).json({ message: "Invalid pet id" }); return; }
-  const pet = await Pet.findById(req.params.id);
+  const petId = String(req.params.id);
+  if (!mongoose.Types.ObjectId.isValid(petId)) { res.status(400).json({ message: "Invalid pet id" }); return; }
+  const pet = await Pet.findById(petId);
   if (!pet) { res.status(404).json({ message: "Pet not found" }); return; }
   if (req.user?.role !== "admin" && pet.owner.toString() !== req.user?.id) {
     res.status(403).json({ message: "Not allowed" }); return;
