@@ -503,3 +503,53 @@ body{background:#fffaf8;color:#4c5d54}
 .home-redesign .new-pet-card:hover .new-pet-image:after{
  transform:rotate(-18deg) scale(1.15);transition:transform .25s ease;
 }
+
+
+/* ===== Premium Green Garden polish ===== */
+:root{
+  --green:#477b55;--green-dark:#315e3e;--mint:#edf5e8;
+  --ink:#294b36;--muted:#788b7d;--line:#e2ebdf;
+  --shadow:0 16px 38px rgba(49,94,62,.09);
+}
+body{background:#f8faf5;color:#365341}
+::selection{background:#dcebd4;color:#294b36}
+a,button{-webkit-tap-highlight-color:transparent}
+.site-header{background:rgba(250,252,247,.92);border-bottom:1px solid #e5eddf;box-shadow:0 7px 24px rgba(49,94,62,.055)}
+.brand,.brand-light{color:#477b55}
+.brand-icon{background:linear-gradient(145deg,#eaf3e5,#dcebd4);border-color:#dcebd4}
+.nav-link{color:#718575}
+.nav-link:hover,.nav-link.active{color:#315e3e}
+.nav-link.active,.nav-user{background:#eaf3e5;color:#477b55}
+.btn-primary{background:linear-gradient(135deg,#477b55,#6c9b6b);box-shadow:0 9px 20px rgba(65,112,72,.18)}
+.btn-primary:hover{background:linear-gradient(135deg,#315e3e,#477b55);box-shadow:0 13px 25px rgba(49,94,62,.23)}
+.btn-outline{border-color:#dce8d8;color:#47734e}
+.btn-outline:hover{border-color:#a9c6a4;background:#f2f7ee}
+.hero{background:linear-gradient(120deg,#f1f7ec,#fbfcf8 58%,#eaf2e4)}
+.hero h1,.section-heading h1,.section-heading h2,.page-title h1,.auth-card h1{color:#294b36}
+.eyebrow{color:#638d66}
+.hero h1 em{color:#6e9e70}
+.service-card,.dashboard-card,.panel,.stat-card,.auth-card{border-color:#e3ecdf;box-shadow:0 10px 28px rgba(49,94,62,.065)}
+.service-card:hover,.dashboard-card:hover{border-color:#c9ddc4;box-shadow:0 19px 38px rgba(49,94,62,.12)}
+.service-icon,.dash-icon,.pet-avatar,.auth-logo{background:linear-gradient(145deg,#edf5e8,#dfeeda);color:#56835c}
+.service-card h3,.dashboard-card h3,.panel h2{color:#365a40}
+.service-card>a:not(.btn-primary),.card-link,.auth-switch a{color:#56835c}
+.page-section{background:linear-gradient(180deg,#f8faf5,#f3f7f0)}
+.form-stack input,.form-stack select,.form-stack textarea{border-color:#dfe9db;background:#fcfdfb}
+.form-stack input:focus,.form-stack select:focus,.form-stack textarea:focus{border-color:#79a77a;box-shadow:0 0 0 4px rgba(108,155,107,.13)}
+.admin-tabs{background:#edf4e9;border-color:#e0eadb}
+.admin-tabs .btn-primary{background:linear-gradient(135deg,#477b55,#6c9b6b)}
+.stat-card:after{background:#eaf3e5}
+.stat-card strong{color:#477b55}
+.footer{background:linear-gradient(120deg,#294f35,#477b55)}
+.hero-sticker{background:#e0edda;color:#5e8a65}
+.floating-note{border-color:#e2ebdf}
+.note-icon{background:#eaf3e5;color:#56835c}
+.status.confirmed{background:#e8f2e3;color:#477b55}
+.text-button{background:#fff1ef}
+@media(hover:hover){
+ .btn-primary,.btn-outline,.btn-white,.service-card,.dashboard-card,.new-pet-card,.new-service-card{will-change:transform}
+}
+@media(prefers-reduced-motion:no-preference){
+ .service-card,.dashboard-card,.panel,.stat-card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+ .service-card:hover,.dashboard-card:hover{transform:translateY(-5px)}
+}
