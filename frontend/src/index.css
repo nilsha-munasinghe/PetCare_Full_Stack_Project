@@ -417,3 +417,61 @@ body{background:#fffaf8;color:#4c5d54}
 @media(prefers-reduced-motion:reduce){
  .home-redesign *, .home-redesign *::before,.home-redesign *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* PetCare green garden theme */
+.home-redesign .new-hero{background:linear-gradient(135deg,#f4f8ef 0%,#edf5e8 52%,#f8f7ed 100%)}
+.home-redesign .new-hero:after{background:radial-gradient(circle,#dcebd4 0%,transparent 70%)}
+.home-redesign .new-kicker{color:#64876a}
+.home-redesign .kicker-paw{background:#e0edda;color:#5e8a65}
+.home-redesign .new-hero-copy h1,.home-redesign .new-section-heading h2,.home-redesign .why-copy h2{color:#294b36}
+.home-redesign .new-hero-copy h1 em,.home-redesign .new-section-heading h2 em,.home-redesign .why-copy h2 em{color:#6f9c70}
+.home-redesign .new-hero-description,.home-redesign .new-section-heading>p,.home-redesign .why-copy>p{color:#718477}
+.home-redesign .new-button-primary{background:linear-gradient(135deg,#477b55,#6c9b6b);box-shadow:0 10px 22px rgba(65,112,72,.2)}
+.home-redesign .new-button-primary:hover{background:#365f43}
+.home-redesign .new-button-quiet{color:#47734e}
+.home-redesign .new-hero-proof span{color:#64806a}
+.home-redesign .new-hero-proof span svg{color:#6b9b70}
+.home-redesign .new-hero-orb.orb-one{background:#dcebd4}
+.home-redesign .new-hero-orb.orb-two{background:#e8edcf}
+.home-redesign .hero-photo-backdrop{background:#dcebd4}
+.home-redesign .hero-floating-card{border-color:#e0eadb}
+.home-redesign .float-icon,.home-redesign .love-icon{background:#eaf3e5;color:#5c8d62}
+.home-redesign .hero-sparkle{color:#80a96f}
+.home-redesign .hero-bottom-note{color:#8a9d8c}
+.home-redesign .scroll-line{background:#a9c6a4}
+.home-redesign .hero-bottom-paw{color:#6e9b70}
+.home-redesign .new-pets-section,.home-redesign .new-why-section{background:#fbfcf8}
+.home-redesign .new-pet-card{border-color:#e4ecdf;box-shadow:0 8px 23px rgba(65,96,67,.07)}
+.home-redesign .new-pet-card:hover{box-shadow:0 20px 36px rgba(65,96,67,.16)}
+.home-redesign .new-pet-image{background:#edf4e8}
+.home-redesign .new-pet-number{color:#557d5b}
+.home-redesign .new-pet-heart{color:#6d9a70}
+.home-redesign .new-pet-info h3{color:#365a40}
+.home-redesign .new-pet-info p{color:#849787}
+.home-redesign .pet-arrow,.home-redesign .new-pet-card.cat .pet-arrow,.home-redesign .new-pet-card.rabbit .pet-arrow,.home-redesign .new-pet-card.guinea .pet-arrow{background:#eaf3e5;color:#5e8e63}
+.home-redesign .new-care-section{background:linear-gradient(180deg,#eff6eb 0%,#f8faf4 100%)}
+.home-redesign .new-service-card{border-color:#e0eadb;box-shadow:0 8px 25px rgba(65,96,67,.06)}
+.home-redesign .new-service-card:hover{box-shadow:0 18px 34px rgba(65,96,67,.13)}
+.home-redesign .new-service-icon,.home-redesign .service-icon-1,.home-redesign .service-icon-2,.home-redesign .service-icon-3{background:#e8f1e2;color:#5c8d62}
+.home-redesign .service-tag{color:#66846a;background:#f1f6ed}
+.home-redesign .new-service-card h3{color:#365a40}
+.home-redesign .new-service-card>p{color:#7d9080}
+.home-redesign .service-text-link{color:#56835c}
+.home-redesign .why-image-wrap:before{background:#e0ecd9}
+.home-redesign .why-sticker{border-color:#e1eadc;color:#639169}
+.home-redesign .why-sticker span{color:#4d6e52}
+.home-redesign .why-points>div>span{background:#eaf3e5;color:#5d8c62}
+.home-redesign .why-points b{color:#46694b}
+.home-redesign .why-points small{color:#829486}
+.home-redesign .new-cta-section{background:linear-gradient(115deg,#315e3e,#6e9e70)}
+.home-redesign .cta-copy .new-kicker{color:#dcebd6}
+.home-redesign .new-button-light{color:#416d49}
+.home-redesign .new-button-light:hover{background:#f1f7ed}
+@media(prefers-reduced-motion:no-preference){
+ .home-redesign .new-pet-card{animation:pet-card-enter .65s both}
+ .home-redesign .new-pet-card:nth-child(2){animation-delay:.08s}
+ .home-redesign .new-pet-card:nth-child(3){animation-delay:.16s}
+ .home-redesign .new-pet-card:nth-child(4){animation-delay:.24s}
+}
+@keyframes pet-card-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
