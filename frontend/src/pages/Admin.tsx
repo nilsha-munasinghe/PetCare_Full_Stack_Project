@@ -162,12 +162,18 @@ export default function Admin() {
     setError("");
     try {
       const response = await api.get("/reports/appointments.pdf", { responseType: "blob" });
-      const url = URL.createObjectURL(response.data);
+      const pdfBlob = response.data instanceof Blob
+        ? response.data
+        : new Blob([response.data], { type: "application/pdf" });
+      const url = URL.createObjectURL(pdfBlob);
       const link = document.createElement("a");
       link.href = url;
       link.download = "petcare-appointments-report.pdf";
+      document.body.appendChild(link);
       link.click();
-      URL.revokeObjectURL(url);
+      link.remove();
+      // Keep the object URL alive until the browser has started the download.
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (e: unknown) {
       setError(apiMessage(e, "Could not generate PDF report."));
     }
