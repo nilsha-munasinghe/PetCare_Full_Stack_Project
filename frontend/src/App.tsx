@@ -4,6 +4,7 @@ import type { RootState } from "./store";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
+import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import Services from "./pages/Services";
 import Pets from "./pages/Pets";
@@ -21,6 +22,6 @@ function Guard({children,admin=false}:{children:JSX.Element;admin?:boolean}){
 export default function App(){
  const user=useSelector((s:RootState)=>s.auth.user);
  return <Routes><Route element={<Layout/>}><Route path="/" element={<Home/>}/><Route path="/services" element={<Services/>}/><Route path="/shop" element={<Shop/>}/>
- <Route path="/login" element={user?<Navigate to="/dashboard"/>:<Auth mode="login"/>}/><Route path="/register" element={user?<Navigate to="/dashboard"/>:<Auth mode="register"/>}/>
+ <Route path="/login" element={user?<Navigate to="/dashboard"/>:<Auth mode="login"/>}/><Route path="/register" element={user?<Navigate to="/dashboard"/>:<Auth mode="register"/>}/><Route path="/forgot-password" element={user?<Navigate to="/dashboard"/>:<ForgotPassword/>}/><Route path="/reset-password" element={user?<Navigate to="/dashboard"/>:<ForgotPassword/>}/>
  <Route path="/dashboard" element={<Guard><Dashboard/></Guard>}/><Route path="/pets" element={<Guard><Pets/></Guard>}/><Route path="/book" element={<Guard><Booking/></Guard>}/><Route path="/appointments" element={<Guard><Appointments/></Guard>}/><Route path="/admin" element={<Guard admin><Admin/></Guard>}/><Route path="/admin/pets" element={<Guard admin><AdminPets/></Guard>}/><Route path="*" element={<Navigate to="/" replace/>}/></Route></Routes>;
 }
