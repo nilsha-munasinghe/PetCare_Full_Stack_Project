@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { register, login, refresh, logout, me } from "../controllers/authController";
+import { forgotPassword, resetPassword } from "../controllers/passwordResetController";
 import { listPets, createPet, updatePet, deletePet } from "../controllers/petController";
 import { listServices, createService, updateService, deleteService } from "../controllers/serviceController";
 import { listAppointments, createAppointment, updateAppointment, rescheduleAppointment } from "../controllers/appointmentController";
@@ -22,6 +23,8 @@ const router = Router();
 
 router.post("/auth/register", asyncHandler(register));
 router.post("/auth/login", asyncHandler(login));
+router.post("/auth/forgot-password", asyncHandler(forgotPassword));
+router.post("/auth/reset-password", asyncHandler(resetPassword));
 router.post("/auth/refresh", asyncHandler(refresh));
 router.post("/auth/logout", asyncHandler(logout));
 router.get("/auth/me", protect, asyncHandler(me));
@@ -61,6 +64,6 @@ router.put("/shop/products/:id", protect, adminOnly, asyncHandler(updateProduct)
 router.delete("/shop/products/:id", protect, adminOnly, asyncHandler(deleteProduct));
 router.post("/shop/orders", protect, asyncHandler(createOrder));
 router.get("/shop/orders", protect, asyncHandler(listOrders));
-router.patch("/shop/orders/:id", protect, asyncHandler(updateOrderStatus));
+router.patch("/shop/orders/:id", protect, adminOnly, asyncHandler(updateOrderStatus));
 
 export default router;
