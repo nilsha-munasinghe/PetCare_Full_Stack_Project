@@ -15,8 +15,8 @@ const appointmentSchema = new Schema<IAppointment>({
   pet: { type: Schema.Types.ObjectId, ref: "Pet", required: true },
   service: { type: Schema.Types.ObjectId, ref: "Service", required: true },
   date: { type: Date, required: true },
-  time: { type: String, required: true },
-  reason: { type: String, default: "" },
+  time: { type: String, required: true, match: /^([01]\d|2[0-3]):[0-5]\d$/ },
+  reason: { type: String, default: "", maxlength: 500 },
   status: { type: String, enum: ["Pending", "Confirmed", "Completed", "Cancelled"], default: "Pending" }
 }, { timestamps: true });
 
