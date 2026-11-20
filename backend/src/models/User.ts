@@ -7,6 +7,8 @@ export interface IUser extends Document {
   role: "customer" | "admin";
   isActive: boolean;
   refreshTokenHash?: string;
+  passwordResetTokenHash?: string;
+  passwordResetExpiresAt?: Date;
 }
 
 const userSchema = new Schema<IUser>({
@@ -15,7 +17,9 @@ const userSchema = new Schema<IUser>({
   password: { type: String, required: true, minlength: 8, select: false },
   role: { type: String, enum: ["customer", "admin"], default: "customer" },
   isActive: { type: Boolean, default: true },
-  refreshTokenHash: { type: String, select: false }
+  refreshTokenHash: { type: String, select: false },
+  passwordResetTokenHash: { type: String, select: false },
+  passwordResetExpiresAt: { type: Date, select: false }
 }, { timestamps: true });
 
 export default mongoose.model<IUser>("User", userSchema);
